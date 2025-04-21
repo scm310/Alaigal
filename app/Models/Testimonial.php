@@ -1,0 +1,36 @@
+<?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Testimonial extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['user_id', 'client_name', 'content','company_name','designation', 'testimonial_image'];
+
+    /**
+     * The user that owns the testimonial.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+    public static function boot()
+    {
+        parent::boot();
+    
+        static::saved(function ($model) {
+            $member = Members::find($model->user_id);
+            if ($member) {
+                $member->checkIfProfileCanBeUpdated();
+            }
+        });
+    }
+    
+
+
+}

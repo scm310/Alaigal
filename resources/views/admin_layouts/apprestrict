@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default" data-assets-path="/admin_assets/assets/" data-template="vertical-menu-template-free">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Dashboard - Analytics | Materio - Bootstrap Material Design Admin Template</title>
+    <meta name="description" content="" />
+    <link rel="icon" type="image/x-icon" href="/admin_assets/assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin_assets/assets/vendor/fonts/materialdesignicons.css" />
+    <link rel="stylesheet" href="/admin_assets/assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="/admin_assets/assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="/admin_assets/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="/admin_assets/assets/css/demo.css" />
+    <link rel="stylesheet" href="/admin_assets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="/admin_assets/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <script src="/admin_assets/assets/vendor/js/helpers.js"></script>
+    <script src="/admin_assets/assets/js/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/admin_assets/assets/vendor/libs/apex-charts/apex-charts.css" />
+    <style>
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            pointer-events: none;
+            background: url('/path/to/watermark.png') repeat;
+            opacity: 0.5;
+        }
+        td:first-child, th:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+        td:last-child, th:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+        #img {
+            width: 200px;
+        }
+        #inputfield {
+            padding: 12px 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        #h1 {
+            border-bottom: solid 2px grey;
+        }
+        #success {
+            background: green;
+        }
+        #error {
+            background: red;
+        }
+        #warning {
+            background: coral;
+        }
+        #info {
+            background: cornflowerblue;
+        }
+        #question {
+            background: grey;
+        }
+        .avatar {
+            height: 48px;
+            width: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
+        .avatar-initial {
+            font-size: 24px;
+        }
+        .ms-3 {
+            flex: 1;
+        }
+        .break-word {
+            max-width: 100px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark"></div>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            @include('admin_layouts.partials.sidebar')
+            <div class="layout-page">
+                @include('admin_layouts.partials.navbar')
+                <div class="content-wrapper">
+                    @yield('content')
+                    @include('admin_layouts.partials.footer')
+                    <div class="content-backdrop fade"></div>
+                </div>
+            </div>
+        </div>
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <div class="modal fade" id="imageModalsnew" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center align-items-center">
+                    <img id="modalVehicleImage" src="" alt="Vehicle Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="imageModalsnews" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-center align-items-center">
+                    <img id="modalVehicleImage" src="" alt="Vehicle Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/admin_assets/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="/admin_assets/assets/vendor/libs/popper/popper.js"></script>
+    <script src="/admin_assets/assets/vendor/js/bootstrap.js"></script>
+    <script src="/admin_assets/assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="/admin_assets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/admin_assets/assets/vendor/js/menu.js"></script>
+    <script src="/admin_assets/assets/vendor/libs/apex-charts/apexcharts.js"></script>
+    <script src="/admin_assets/assets/js/main.js"></script>
+    <script src="/admin_assets/assets/js/dashboards-analytics.js"></script>
+    <script src="/admin_assets/assets/js/ui-modals.js"></script>
+    <script src="https://buttons.github.io/buttons.js" async defer></script>
+    <script src="https://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example, #example1, #example2, #example3, #material-table, #poptable, #example5').DataTable({
+                paging: true,
+                ordering: false,
+                pageLength: 10
+            });
+        });
+    </script>
+    <script>
+        $(document).on('click', '#success', function (e) {
+            swal(
+                'Success',
+                'You clicked the <b style="color:green;">Success</b> button!',
+                'success'
+            )
+        });
+        $(document).on('click', '#error', function (e) {
+            swal(
+                'Error!',
+                'You clicked the <b style="color:red;">error</b> button!',
+                'error'
+            )
+        });
+        $(document).on('click', '#warning', function (e) {
+            swal(
+                'Warning!',
+                'You clicked the <b style="color:coral;">warning</b> button!',
+                'warning'
+            )
+        });
+        $(document).on('click', '#info', function (e) {
+            swal(
+                'Info!',
+                'You clicked the <b style="color:cornflowerblue;">info</b> button!',
+                'info'
+            )
+        });
+        $(document).on('click', '#question', function (e) {
+            swal(
+                'Question!',
+                'You clicked the <b style="color:grey;">question</b> button!',
+                'question'
+            )
+        });
+        $(document).on('click', '#icon', function (event) {
+            swal({
+                title: 'Custom icon!',
+                text: 'Alert with a custom image.',
+                imageUrl: 'https://image.shutterstock.com/z/stock-vector--exclamation-mark-exclamation-mark-hazard-warning-symbol-flat-design-style-vector-eps-444778462.jpg',
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                animation: false
+            })
+        });
+        $(document).on('click', '#image', function (event) {
+            swal({
+                title: 'Custom background image, width and padding.',
+                width: 700,
+                padding: 150,
+                background: '#fff url(https://image.shutterstock.com/z/stock-vector--exclamation-mark-exclamation-mark-hazard-warning-symbol-flat-design-style-vector-eps-444778462.jpg)'
+            })
+        });
+        $(document).on('click', '#subscribe', function (e) {
+            swal({
+                title: 'Submit email to subscribe',
+                input: 'email',
+                inputPlaceholder: 'Example@email.xxx',
+                showCancelButton: true,
+                confirmButtonText: 'Submit',
+                showLoaderOnConfirm: true,
+                preConfirm: (email) => {
+                    return new Promise((resolve) => {
+                        setTimeout(() => {
+                            if (email === 'example@email.com') {
+                                swal.showValidationError(
+                                    'This email is already taken.'
+                                )
+                            }
+                            resolve()
+                        }, 2000)
+                    })
+                },
+                allowOutsideClick: false
+            }).then((result) => {
+                if (result.value) {
+                    swal({
+                        type: 'success',
+                        title: 'Thank you for subscribe!',
+                        html: 'Submitted email: ' + result.value
+                    })
+                }
+            })
+        });
+        $(document).on('click', '#link', function (e) {
+            swal({
+                title: "Are you sure?",
+                text: "You will be redirected to https://utopian.io",
+                type: "warning",
+                confirmButtonText: "Yes, visit link!",
+                showCancelButton: true
+            })
+                .then((result) => {
+                    if (result.value) {
+                        window.location = 'https://utopian.io';
+                    } else if (result.dismiss === 'cancel') {
+                        swal(
+                            'Cancelled',
+                            'Your stay here :)',
+                            'error'
+                        )
+                    }
+                })
+        });
+    </script>
+    <script src="/admin_assets/assets/js/charts-apex.js"></script>
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable certain key presses (PrintScreen, F12, Ctrl+Shift+I/J/U, Ctrl+S, Ctrl+P, Ctrl+C, Ctrl+V, Ctrl+X, etc.)
+        document.addEventListener('keydown', event => {
+            const blockedKeys = [
+                'PrintScreen', 'F12', 'F11', 'F5'
+                /*,
+                'c', 'C', 'x', 'X', 'v', 'V', 's', 'S', 'p', 'P', 'a', 'A', 'u', 'U',
+                'I', 'J', 'U'*/
+            ];
+            const blockedCombinations = [
+                'Shift+I', 'Shift+J', 'Shift+C', 'Shift+X', 'Shift+V', 'Shift+U',
+                'Ctrl+S', 'Ctrl+P', 'Ctrl+U', 'Ctrl+C', 'Ctrl+X', 'Ctrl+V',
+                'Ctrl+Shift+I', 'Ctrl+Shift+J', 'Ctrl+Shift+U',
+                'Meta+S', 'Meta+P', 'Meta+U', 'Meta+C', 'Meta+X', 'Meta+V'
+            ];
+
+            const key = event.key;
+            const combination = `${event.ctrlKey ? 'Ctrl+' : ''}${event.metaKey ? 'Meta+' : ''}${event.shiftKey ? 'Shift+' : ''}${key}`;
+
+            if (blockedKeys.includes(key) || blockedCombinations.includes(combination)) {
+                event.preventDefault();
+            }
+
+            // Clear clipboard data on PrintScreen
+            if (key === 'PrintScreen') {
+                setTimeout(() => {
+                    navigator.clipboard.writeText('');
+                }, 100);
+                alert('Screenshots are disabled on this site.');
+            }
+        });
+
+        // Continuously monitor and clear clipboard data
+        setInterval(() => {
+            navigator.clipboard.writeText('');
+        }, 1000);
+
+        // Disable copying content
+        document.addEventListener('copy', event => event.preventDefault());
+    </script>
+</body>
+</html>
