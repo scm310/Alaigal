@@ -5,19 +5,13 @@ Updated on:18/02/2025-->
 
 @extends('memberlayout.navbar')
 <style>
-
-
-
-
-
-
-
+    
 .prime-ribbon {
     position: absolute;
     top: 10px;
     right: -10px;
     background: gold;
-    color: black;
+    color: black;  
     font-weight: bold;
     padding: 5px 20px;
     font-size: 14px;
